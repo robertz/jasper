@@ -9,7 +9,7 @@ No database is required in an attempt to keep things as simple as possible, deta
 ``` md
 ---
 title: New post title goes here
-author: `jasper`
+author: jasper
 description: This would be a pretty good spot to summarize what you are writing about 
 tags: 
 - awesome
