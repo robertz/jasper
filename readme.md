@@ -1,26 +1,27 @@
-# Blog
-A lightweight blog implementation
+## Jasper
 
-Blog allows you to create a blog with markdown files, similar to a static site generator. Creating a post is as easy as generating a new markdown file with the proper front matter and markdown
+Jasper is a blog written in ColdFusion aiming to make blogging as simple as possible. Adding a new post is as easy as creating a new markdown file in the `/posts` directory.
+
+Jasper also allows you to create `pages` which allow you to use markdown outside of blog posts.
+
+No database is required in an attempt to keep things as simple as possible, details for each post are read from the front matter of the blog posts.
 
 ``` md
 ---
 title: New post title goes here
-author: Robert Zehnder
+author: `jasper`
 description: This would be a pretty good spot to summarize what you are writing about 
 tags: 
 - awesome
 image: https://static.kisdigital.com/images/marvel/00_anthology.jpg
 published: false
-publishedDate: 2021-05-16
+publishDate: 2021-05-16
 ---
 
 ### Awesome
 
-Type it out
+My awsome blog post starts here
 ```
-
-No database is required so everything is cached for performance. Currently this is the default ColdBox object cache. Might need to be moved later. The caching is pretty agressive, you can pass the `rb` url parameter to force a cache rebuild on any url.
 ## Quick Installation
 
 Each application templates contains a `box.json` so it can leverage [CommandBox](http://www.ortussolutions.com/products/commandbox) for its dependencies.  

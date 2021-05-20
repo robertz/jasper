@@ -22,7 +22,7 @@
 <body style="padding-top: 70px;">
 	<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
 		<div class="container">
-			<a class="navbar-brand" href="/">Blog</a>
+			<a class="navbar-brand" href="/">Jasper</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="##navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -35,7 +35,7 @@
 						<a class="nav-link" href="/tag/misc">Misc</a>
 					</li>
 					<li class="nav-item active">
-						<a class="nav-link" href="/page/bio">Bio</a>
+						<a class="nav-link" href="/page/readme">Readme</a>
 					</li>
 				</ul>
 			</div>

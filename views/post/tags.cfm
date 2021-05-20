@@ -1,7 +1,7 @@
 <cfoutput>
 	<div class="row lazy">
 		<div class="col-md-2 hidden-sm"></div>
-		<div class="col-md-8 col-sm-12">
+		<div class="col-md-8 col-sm-12 post">
 			<cfloop array="#prc.posts#" item="post">
 				<div class="card mb-3">
 					<img src="#post.image#" class="card-img-top feed-item" alt="">

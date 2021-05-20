@@ -6,9 +6,9 @@ component extends="coldbox.system.web.context.RequestContextDecorator" {
 		var rc = getRequestContext().getCollection();
 		var prc = getRequestContext().getCollection(private = true);
 
-		prc['meta']['title'] = "Blog";
+		prc['meta']['title'] = "Jasper";
 		prc['meta']['description'] = "Blog Description";
-		prc['meta']['author'] = "John Smith";
+		prc['meta']['author'] = "Jasper";
 
 		prc['headers'] = [];
 
