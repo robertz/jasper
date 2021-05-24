@@ -42,7 +42,7 @@ component {
 			// Error/Exception Handling
 			invalidHTTPMethodHandler : "",
 			exceptionHandler         : "main.onException",
-			invalidEventHandler      : "",
+			invalidEventHandler      : "main.missing",
 			customErrorTemplate      : "",
 			// Application Aspects
 			handlerCaching           : false,

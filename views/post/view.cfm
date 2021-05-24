@@ -1,7 +1,7 @@
 <cfoutput>
 	<div class="row lazy">
-		<div class="col-md-2 hidden-sm"></div>
-		<div class="col-md-8 col-sm-12 post">
+		<div class="col-lg-2 hidden-md"></div>
+		<div class="col-lg-8 col-md-12 post">
 			<cfif prc.post.status eq "ok">
 				<div class="mb-3">
 					<div>
@@ -16,13 +16,17 @@
 					</div>
 					<p class="small">#prc.post.description#</p>
 				</div>
-				#prc.html#
+				<div class="mb-5">
+					#prc.html#
+				</div>
+				#renderView("partials/author")#
+				#renderView("partials/disqus")#
 			<cfelse>
-				<div class="alert alert-danger">
-					<strong>Uh Oh!</strong> There was an error with your request.
+				<div class="text-center mt-5">
+					<img src="https://static.kisdigital.com/images/notfound.jpeg" alt="" class="h-50 w-50">
 				</div>
 			</cfif>
 		</div>
-		<div class="col-md-2 hidden-sm"></div>
+		<div class="col-lg-2 hidden-md"></div>
 	</div>
 </cfoutput>

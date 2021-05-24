@@ -1,10 +1,10 @@
 <cfoutput>
 	<div class="row lazy">
-		<div class="col-md-2 hidden-sm"></div>
-		<div class="col-md-8 col-sm-12 post">
+		<div class="col-lg-2 hidden-md"></div>
+		<div class="col-lg-8 col-md-12">
 			<cfloop array="#prc.posts#" item="post">
 				<div class="card mb-3">
-					<img src="#post.image#" class="card-img-top feed-item" alt="">
+					<a href="/post/#post.slug#" alt="#post.title#"><img src="#post.image#" class="card-img-top feed-item" alt=""></a>
 					<div class="card-body">
 						<p class="card-text">
 							<div>
@@ -24,6 +24,6 @@
 				</div>
 			</cfloop>
 		</div>
-		<div class="col-md-2 hidden-sm"></div>
+		<div class="col-lg-2 hidden-md"></div>
 	</div>
 </cfoutput>
