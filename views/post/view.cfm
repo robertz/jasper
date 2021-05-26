@@ -19,8 +19,6 @@
 				<div class="mb-5">
 					#prc.html#
 				</div>
-				#renderView("partials/author")#
-				#renderView("partials/disqus")#
 			<cfelse>
 				<div class="text-center mt-5">
 					<img src="https://static.kisdigital.com/images/notfound.jpeg" alt="" class="h-50 w-50">

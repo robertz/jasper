@@ -79,4 +79,20 @@ component {
 		return data;
 	}
 
+	// get list of pages, try pulling from cache first
+	function list() {
+		var pages = cacheGet(id = "pages");
+		if(!isDefined("pages") || env == "development"){
+			var files = directoryList(path = expandPath(".") & "/pages/", listInfo = "query", sort = "dateLastModified DESC");
+			var pages = [];
+			files.each((file) => {
+				// get details for each post
+				var page = getFrontMatter(slug = replace(listLast(file.name, "/"), ".md", ""));
+				pages.append(page);
+			});
+			cachePut(id = "pages", value = pages);
+		}
+		return pages;
+	}
+
 }

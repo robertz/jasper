@@ -1,10 +1,10 @@
 <cfoutput>
 	<div class="row lazy">
 		<div class="col-lg-2 hidden-md"></div>
-		<div class="col-lg-8 col-md-12">
+		<div class="col-lg-8 col-md-12 post">
 			<cfloop array="#prc.posts#" item="post">
 				<div class="card mb-3">
-					<a href="/post/#post.slug#" alt="#post.title#"><img src="#post.image#" class="card-img-top feed-item" alt=""></a>
+					<a href="/post/#post.slug##prc.buildExt#" alt="#post.title#"><img src="#post.image#" class="card-img-top feed-item" alt=""></a>
 					<div class="card-body">
 						<p class="card-text">
 							<div>
@@ -18,7 +18,7 @@
 								<span class="text-muted small">#dateFormat(post.publishDate, "mmm dd, yyyy")#</span>
 							</div>
 							<p class="small">#post.description#</p>
-							<a href="/post/#post.slug#" class="btn btn-primary">Read More</a>
+							<a href="/post/#post.slug##prc.buildExt#" class="btn btn-primary">Read More</a>
 						</p>
 					</div>
 				</div>

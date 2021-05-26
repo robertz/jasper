@@ -9,7 +9,7 @@
     <meta name="author" content="#prc.meta.author#">
 	<meta name="twitter:widgets:theme" content="light">
 	<meta name="twitter:widgets:border-color" content="##55acee">
-	<base href="#event.getHTMLBaseURL()#" />
+	<!--- <base href="#event.getHTMLBaseURL()#" /> --->
 	<cfloop array="#prc.headers#" index="header">
 		<cfif header.keyExists("property")>
 			<meta property="#header.property#" content="#header.content#" />
@@ -31,13 +31,13 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active">
-						<a class="nav-link" href="/tag/code">Code</a>
+						<a class="nav-link" href="/tag/code#prc.buildExt#">Code</a>
 					</li>
 					<li class="nav-item active">
-						<a class="nav-link" href="/tag/misc">Misc</a>
+						<a class="nav-link" href="/tag/misc#prc.buildExt#">Misc</a>
 					</li>
 					<li class="nav-item active">
-						<a class="nav-link" href="/page/readme">Readme</a>
+						<a class="nav-link" href="/page/readme#prc.buildExt#">Readme</a>
 					</li>
 				</ul>
 			</div>
