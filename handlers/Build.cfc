@@ -6,6 +6,7 @@ component {
 	function index (event, rc, prc) {
 		var tags = ["code", "misc"];
 		if(getSetting("environment") != "development") abort;
+		directoryDelete(path = expandPath(".") & "/dist", recurse = true);
 		directoryCreate(path = expandPath(".") & "/dist", ignoreExists = true);
 		directoryCreate(path = expandPath(".") & "/dist/post", ignoreExists = true);
 		directoryCreate(path = expandPath(".") & "/dist/page", ignoreExists = true);
