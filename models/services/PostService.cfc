@@ -97,4 +97,15 @@ component {
 		}
 		return posts;
 	}
+
+	function getTags() {
+		var tags = [];
+		var posts = list();
+
+		// Calculate tags
+		posts.each(function(post){
+			for(var tag in post.tags) if(!tags.find(tag)) tags.append(tag);
+		});
+		return tags;
+	}
 }

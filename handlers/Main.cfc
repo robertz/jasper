@@ -5,12 +5,13 @@ component extends="coldbox.system.EventHandler" {
 	function index( event, rc, prc ) {
 		// var files = directoryList("posts/");
 		prc['posts'] = PostService.list();
+		prc['tagCloud'] = PostService.getTags();
 
 		event.setView( "main/index" );
 	}
 
-	function missing (event, rc, prc) {
-		location(url = "/", addToken = "false");
+	function notfound (event, rc, prc) {
+		event.setView( "main/404" );
 	}
 
 

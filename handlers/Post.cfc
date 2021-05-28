@@ -5,6 +5,7 @@ component {
 
 	function get (event, rc, prc){
 		prc['post'] = PostService.getFrontMatter(slug = rc.slug);
+		prc['tagCloud'] = PostService.getTags();
 		prc['html'] = MarkdownService.toHTML(PostService.getMarkdown(slug = rc.slug).markdown);
 
 		if(prc.post.status == "ok"){

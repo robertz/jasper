@@ -1,10 +1,10 @@
 ---
 title: Marvel Movies in Chronological Order
-author: Jasper
+author: Robert Zehnder
 description: A listing of all the Marvel movies in timeline order
 tags: 
 - misc
-- code
+- movies
 image: https://static.kisdigital.com/images/marvel/00_anthology.jpeg
 published: true
 publishDate: 2020-05-30

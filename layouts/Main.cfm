@@ -45,7 +45,7 @@
 	</nav>
 
 	<!---Container And Views --->
-	<div class="container">#renderView()#</div>
+	<div class="container-fluid">#renderView()#</div>
 
 	<footer class="border-top py-3 mt-5">
 		<div class="container">

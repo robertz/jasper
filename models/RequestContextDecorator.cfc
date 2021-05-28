@@ -8,11 +8,10 @@ component extends="coldbox.system.web.context.RequestContextDecorator" {
 
 		prc['meta']['title'] = "Jasper";
 		prc['meta']['description'] = "Blog Description";
+		prc['meta']['url'] = "https://example.com"
 		prc['meta']['author'] = "Jasper";
 
 		prc['headers'] = [];
-
-		if(rc.keyExists("rb")) cacheClear();
 
 		return this;
 	}
