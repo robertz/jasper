@@ -12,7 +12,6 @@ component extends="coldbox.system.web.context.RequestContextDecorator" {
 
 		prc['headers'] = [];
 
-		prc["buildExt"] = Controller.getSetting("environment") == "development" && rc.keyExists("build") ? ".html" : "";
 		if(rc.keyExists("rb")) cacheClear();
 
 		return this;

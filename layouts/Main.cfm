@@ -19,7 +19,7 @@
 	</cfloop>
 	<link rel="stylesheet" href="https://unpkg.com/bootstrap@4.6.0/dist/css/bootstrap.min.css" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="/assets/css/site.css?v=#createUUID()#">
+	<link rel="stylesheet" href="/assets/css/site.css?v=#dateFormat(now(), "yyyy-mm-dd")#T#timeFormat(now(), "HH:mm:ss")#">
 </head>
 <body style="padding-top: 70px;">
 	<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
@@ -31,13 +31,13 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active">
-						<a class="nav-link" href="/tag/code#prc.buildExt#">Code</a>
+						<a class="nav-link" href="/tag/code">Code</a>
 					</li>
 					<li class="nav-item active">
-						<a class="nav-link" href="/tag/misc#prc.buildExt#">Misc</a>
+						<a class="nav-link" href="/tag/misc">Misc</a>
 					</li>
 					<li class="nav-item active">
-						<a class="nav-link" href="/page/readme#prc.buildExt#">Readme</a>
+						<a class="nav-link" href="/page/readme">Readme</a>
 					</li>
 				</ul>
 			</div>
@@ -54,7 +54,6 @@
 	</footer>
 
 	<!---js --->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/bootstrap@4.6.0/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
