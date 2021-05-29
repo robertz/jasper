@@ -7,7 +7,7 @@ tags:
 - movies
 image: https://static.kisdigital.com/images/marvel/00_anthology.jpeg
 published: true
-publishDate: 2020-05-30
+publishDate: 2020-05-18
 ---
 
 ![Cover](https://static.kisdigital.com/images/marvel/00_anthology.jpeg)

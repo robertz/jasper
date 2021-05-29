@@ -52,8 +52,8 @@ component output = "false" hint = "Handle Jasper Management Tasks" {
 
 		// Generate Tags
 		tags.each((tag) => {
-			cfhttp(url = "127.0.0.1:" & cgi.SERVER_PORT & "/tag/" & tag, result = tag.replace("-", "_", "all"));
-			fileWrite(expandPath(".") & "/dist/tag/" & tag & ".html", variables[tag.replace("-", "_", "all")].fileContent);
+			cfhttp(url = "127.0.0.1:" & cgi.SERVER_PORT & "/tag/" & tag.replace(" ", "-", "all"), result = tag.replace(" ", "_", "all"));
+			fileWrite(expandPath(".") & "/dist/tag/" & tag & ".html", variables[tag.replace(" ", "_", "all")].fileContent);
 			generated++;
 		}, true);
 
