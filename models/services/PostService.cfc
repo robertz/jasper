@@ -1,7 +1,7 @@
 component {
 
 	property name="YamlService" inject="Parser@cbyaml";
-	property name="env" inject="coldbox:setting:environment";
+	property name="env" default="development";
 
 	// get metadata for the post
 	function getFrontMatter(required string slug) {
@@ -91,7 +91,7 @@ component {
 				if(post.keyExists("published") && post.published) posts.append(post);
 			});
 			posts.sort((e1, e2) => {
-				return compare(e2.publishDate, e1.publishDate); // desc
+				return dateCompare(e2.publishDate, e1.publishDate); // desc
 			});
 			cachePut(id = "posts", value = posts);
 		}

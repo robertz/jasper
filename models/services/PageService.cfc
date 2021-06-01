@@ -1,7 +1,7 @@
 component {
 
 	property name="YamlService" inject="Parser@cbyaml";
-	property name="env" inject="coldbox:setting:environment";
+	property name="env" default="development";
 
 	// get metadata for the post
 	function getFrontMatter(required string slug) {
