@@ -104,7 +104,7 @@ component {
 
 		// Calculate tags
 		posts.each(function(post){
-			for(var tag in post.tags) if(!tags.find(tag)) tags.append(tag);
+			for(var tag in post.tags) if(!tags.find(tag.replace("-", " ", "all"))) tags.append(tag.replace("-", " ", "all"));
 		});
 		return tags;
 	}

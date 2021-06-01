@@ -25,8 +25,9 @@ component {
 
 	function filterByTag (event, rc, prc) {
 		var posts = PostService.list();
+		prc['tag']= rc.tag.replace("-", " ", "all")
 		prc['posts'] = posts.filter((post) => {
-			return post.tags.find(rc.tag);
+			return post.tags.find(prc.tag);
 		});
 
 		event.setView("post/tags");
