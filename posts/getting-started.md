@@ -12,8 +12,6 @@ publishDate: 2020-05-30
 
 ![Cover](https://static.kisdigital.com/images/jasper/getting-started-00-cover.jpeg)
 
-### Getting Started
-
 Jasper does not require any backend to operate so it is very easy to get up and running. If you are famiilar with ColdBox, even more so.
 
 There are a few important directories for Jasper:
@@ -32,36 +30,34 @@ Jasper uses ColdBox to render all HTML. Here are a few important files to be awa
 * **/handlers/Post** - This handler renders blog posts as well as filtering by tag
 * **/handlers/Manage** - This hanlder controls building blog content
 * **/layouts/Main.cfm** - This is the main layout file for the blog. ColdBox supports multiple layouts, add as many layouts as you want.
-* **/models/RequestContextDecorator** - The request context decorator contains all the variables/meta data required to render the page. Blog specific header data is set in the request context decorator as well.
+* **/models/JasperConfig** - Customize your Jasper Configuration
 * **/models/PageService** - This component contains is responsible for reading front matter and markdown for pages
 * **/models/PostService** - This component contains the methods responsible for reading front matter, markdown, and listing posts. Post service also handles writing oout opengraph and twitter metadata to ensure your post is properly attributed when shared
 * **/models/ManageService** - This component contains the methods responsible for writing the HTML out to the `/dist` folder
 
-### Configuring Settings
+### Configuring Settings (JasperConfig)
 
 ``` javascript
-component extends="coldbox.system.web.context.RequestContextDecorator" {
-
-	property name="Controller" inject="coldbox";
-
-	function configure(){
-		var rc = getRequestContext().getCollection();
-		var prc = getRequestContext().getCollection(private = true);
-
-		prc['meta']['title'] = "Jasper";
-		prc['meta']['description'] = "Blog Description";
-		prc['meta']['url'] = "https://example.com"
-		prc['meta']['author'] = "Jasper";
-
-		prc['headers'] = [];
-
-		return this;
+component output = "false" {
+	// return the config
+	function getConfig() {
+		return {
+			'meta': { // Jasper metadata used in site layout
+				'title': "Jasper", // title bar
+				'description': "A description of your blog", // meta description
+				'author': "Jasper",
+				'url': "https://example.com"
+			},
+			'contentPages': [ // Coldbox pages to generate and where to write it to
+				{ action: "main.index", file: "index.html" },
+				{ action: "main.notfound", file: "404.html" }
+			]
+		}
 	}
-
 }
 ```
 
-Currently there are only minimal settings in `models.RequestContextDecorator`, namely the meta data required to set social sharing options and the `prc['headers']` array used in the layout.
+Currently there are only minimal settings available.
 
 ### Generating Static Content
 
@@ -72,7 +68,7 @@ Once the content has been created it is time to generate the static site. Curren
 
 The build is triggered by hitting the build URL, http://127.0.0.1:60783/manage/build for example. If successful you should see a message like `Build completed in 534 ms.`The build process builds a list of all pages, posts, and tags and calls each one using `cfhttp`; the resulting HTML is then written to disk. This process also generates an RSS 2.0 XML feed for your posts.
 
-This is process is handled in `ManageService.generateStaticContent()`
+This is process is handled in `ManageService.generateStaticContent()` and `ManageService.generateFeedXml`.
 
 **Content Pages**
 
@@ -88,15 +84,3 @@ Content pages are the pages that are manually triggered to be generated and cons
 ```
 
 The deploy action is specific to my configuration with Netlify. Netlify can watcha repo for commits, and the `deploy` action generates the static files in the `/dist` directory and then copies them to the blog's ssg repo. A bash script is then executed that creates a new commit and pushes it to GitHub.
-
-**blog/commit.sh**
-
-``` bash
-#!/bin/bash
-cd ~/static
-git add --all
-git commit -m "Build triggered"
-git push
-```
-
-Netlify will see the commit and start a new build.
