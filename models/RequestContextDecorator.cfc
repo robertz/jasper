@@ -5,13 +5,9 @@ component extends="coldbox.system.web.context.RequestContextDecorator" {
 	function configure(){
 		var rc = getRequestContext().getCollection();
 		var prc = getRequestContext().getCollection(private = true);
-
-		prc['meta']['title'] = "Jasper";
-		prc['meta']['description'] = "Blog Description";
-		prc['meta']['url'] = "https://example.com"
-		prc['meta']['author'] = "Jasper";
-
+		var config = new models.JasperConfig().getConfig();
 		prc['headers'] = [];
+		prc.append(config);
 
 		return this;
 	}

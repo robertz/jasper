@@ -10,7 +10,7 @@ component {
 
 		if(prc.post.status == "ok"){
 			prc.meta.title &= " - " & prc.post.title;
-			prc['headers'] = [];
+			// set social tags
 			prc.headers.append({'property': "og:title", 'content': "#prc.post.title#"});
 			prc.headers.append({'property': "og:description", 'content': "#prc.post.description#"});
 			prc.headers.append({'property': "og:image", 'content': "#prc.post.image#"});
@@ -29,7 +29,6 @@ component {
 		prc['posts'] = posts.filter((post) => {
 			return post.tags.find(prc.tag);
 		});
-
 		event.setView("post/tags");
 	}
 
