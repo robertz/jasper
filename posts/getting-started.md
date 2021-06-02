@@ -66,21 +66,6 @@ Once the content has been created it is time to generate the static site. Curren
 * build - Attempts to build the site content, copies the dist folder to a production repo
 * deploy - Builds the content, copies `dist/` folder to the production repo, calls a bash script to commit the changes and push it to GitHub.
 
-The build is triggered by hitting the build URL, http://127.0.0.1:60783/manage/build for example. If successful you should see a message like `Build completed in 534 ms.`The build process builds a list of all pages, posts, and tags and calls each one using `cfhttp`; the resulting HTML is then written to disk. This process also generates an RSS 2.0 XML feed for your posts.
+The build is triggered by hitting the build URL, http://127.0.0.1:60783/manage/build for example. If successful you should see a message like `10 document(s) generated in 112 ms.`The build process builds a list of all pages, posts, and tags and calls each one using `cfhttp`; the resulting HTML is then written to disk. This process also generates an RSS 2.0 XML feed for your posts.
 
 This is process is handled in `ManageService.generateStaticContent()` and `ManageService.generateFeedXml`.
-
-**Content Pages**
-
-Content pages are the pages that are manually triggered to be generated and consist of the ColdBox URL to generate the HTML and the file to write the contents out for. This is used to generate the home page as well as a custom 404 page.
-
-``` javascript
-		// ColdBox handlers generate pages and where to write the file
-		var contentPages = [
-			{ act: "main.index", file: "index.html" },
-			{ act: "main.notfound", file: "404.html" }
-		];
-
-```
-
-The deploy action is specific to my configuration with Netlify. Netlify can watcha repo for commits, and the `deploy` action generates the static files in the `/dist` directory and then copies them to the blog's ssg repo. A bash script is then executed that creates a new commit and pushes it to GitHub.

@@ -29,7 +29,6 @@ component output = "false" hint = "Handle Jasper Management Tasks" {
 		config.contentPages.each((page) => {
 			cfhttp(url = "127.0.0.1:" & cgi.SERVER_PORT & "/" & page.action, result = page.action.replace(".", "_", "all"));
 			fileWrite(expandPath(".") & "/dist/" & page.file, variables[page.action.replace(".", "_", "all")].fileContent);
-			generated++;
 		}, true);
 
 		// Generate posts
@@ -37,37 +36,34 @@ component output = "false" hint = "Handle Jasper Management Tasks" {
 		posts.each((post) => {
 			cfhttp(url = "127.0.0.1:" & cgi.SERVER_PORT & "/post/" & post.slug, result = post.slug.replace("-", "_", "all"));
 			fileWrite(expandPath(".") & "/dist/post/" & post.slug & ".html", variables[post.slug.replace("-", "_", "all")].fileContent);
-			generated++;
 		}, true);
 
 		// Generate pages
 		pages.each((page) => {
 			cfhttp(url = "127.0.0.1:" & cgi.SERVER_PORT & "/page/" & page.slug, result = page.slug.replace("-", "_", "all"));
 			fileWrite(expandPath(".") & "/dist/page/" & page.slug & ".html", variables[page.slug.replace("-", "_", "all")].fileContent);
-			generated++;
 		}, true);
 
 		// Generate Tags
 		tags.each((tag) => {
 			cfhttp(url = "127.0.0.1:" & cgi.SERVER_PORT & "/tag/" & tag.replace(" ", "-", "all"), result = tag.replace(" ", "_", "all"));
 			fileWrite(expandPath(".") & "/dist/tag/" & tag & ".html", variables[tag.replace(" ", "_", "all")].fileContent);
-			generated++;
 		}, true);
 
-		generateFeedXml(prc = prc, posts = posts);
-		generated++;
+		generateFeedXml( posts );
 
-		return generated & " document(s) generated in " & (getTickCount() - start) & " ms.";
+		return "Document(s) generated in " & (getTickCount() - start) & " ms.";
  	}
 
-	 function generateFeedXml (required struct prc, required array posts) {
+	 function generateFeedXml (required array posts) {
+		var config = JasperConfig.getConfig();
 		// Generate RSS feed
 		var feed = "";
-		feed &= '<?xml version="1.0" encoding="utf-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><atom:link href="#prc.meta.url#/feed.xml" rel="self" type="application/rss+xml" /><title>#prc.meta.title#</title><link>#prc.meta.url#</link>';
-		feed &= '<description>#prc.meta.description#</description><lastBuildDate>#dateFormat(now(), "ddd, dd mmm yyyy")# #timeFormat(now(), "HH:mm:ss XX")#</lastBuildDate>';
+		feed &= '<?xml version="1.0" encoding="utf-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><atom:link href="#config.meta.url#/feed.xml" rel="self" type="application/rss+xml" /><title>#config.meta.title#</title><link>#config.meta.url#</link>';
+		feed &= '<description>#config.meta.description#</description><lastBuildDate>#dateFormat(now(), "ddd, dd mmm yyyy")# #timeFormat(now(), "HH:mm:ss XX")#</lastBuildDate>';
 		feed &= '<language>en-us</language><generator>Jasper</generator>';
 		posts.each((post) => {
-			feed &= '<item><title>#post.title#</title><link>#prc.meta.url#/post/#post.slug#</link><guid isPermalink="true">#prc.meta.url#/post/#post.slug#</guid>';
+			feed &= '<item><title>#post.title#</title><link>#config.meta.url#/post/#post.slug#</link><guid isPermalink="true">#config.meta.url#/post/#post.slug#</guid>';
 			feed &= '<pubDate>#dateFormat(post.publishDate, "ddd, dd mmm yyyy")# #timeFormat(post.publishDate, "HH:mm:ss XX")#</pubDate><description><![CDATA[#post.description#]]></description>';
 			for(var tag in post.tags) feed &= '<category>#tag#</category>';
 			feed &= '</item>';
