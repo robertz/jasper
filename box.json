@@ -27,12 +27,14 @@
         "coldbox":"coldbox/",
         "testbox":"testbox/",
         "cbmarkdown":"modules/cbmarkdown/",
-        "cbyaml":"modules/cbyaml/"
+        "cbyaml":"modules/cbyaml/",
+        "cbjsoup":"modules/cbjsoup/"
     },
     "dependencies":{
         "coldbox":"^6.0.0",
         "cbmarkdown":"^3.4.0+38",
-        "cbyaml":"^1.0.4"
+        "cbyaml":"^1.0.4",
+        "cbjsoup":"^1.0.1"
     },
     "scripts":{},
     "testbox":{
