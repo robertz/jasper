@@ -13,6 +13,8 @@ component {
 		route( "/tag/:tag")
 			.to( "post.filterByTag");
 
+		route( "/search")
+			.to( "main.search");
 
 		// Conventions based routing
 		route( ":handler/:action?" ).end();

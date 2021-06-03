@@ -20,7 +20,7 @@ component {
 			prc.headers.append({'name': "twitter:image", 'content': "#prc.post.image#"});
 		}
 
-		event.setView("post/view");
+		event.setView( prc.post.status == "ok" ? "post/view" : "main/404" );
 	}
 
 	function filterByTag (event, rc, prc) {

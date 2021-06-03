@@ -39,6 +39,9 @@
 					<li class="nav-item active">
 						<a class="nav-link" href="/page/readme">Readme</a>
 					</li>
+					<li class="nav-item active">
+						<a class="nav-link" href="/search">Search</a>
+					</li>
 				</ul>
 			</div>
 		</div>

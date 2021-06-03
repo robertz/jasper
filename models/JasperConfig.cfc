@@ -10,7 +10,8 @@ component output = "false" {
 			},
 			'contentPages': [
 				{ action: "main.index", file: "index.html" },
-				{ action: "main.notfound", file: "404.html" }
+				{ action: "main.notfound", file: "404.html" },
+				{ action: "main.search", file: "search.html" }
 			]
 		}
 	}
